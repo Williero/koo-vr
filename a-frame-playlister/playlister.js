@@ -5,7 +5,7 @@ $(document).ready(function() {
         for (var i in tracks ) {
             var track = tracks[i],
                 thumbnail = track.album.images[0].url ;
-            var album = '<a-entity class="album" geometry="primitive: box; width: .8; height: .8; depth: .1" material="src: url(' + thumbnail + ')" position="0 ' + i + ' -5" sound="src: url(' + track.preview_url + '); autoplay: true"></a-entity>'
+            var album = '<a-entity class="album" geometry="primitive: box; width: .8; height: .8; depth: .1" material="src: url(' + thumbnail + ')" position="0 ' + i + ' -5" sound="src: ' + track.preview_url + '"></a-entity>'
             $(album).insertAfter("#shelf")
         }
     }).success(function() {
@@ -15,11 +15,13 @@ $(document).ready(function() {
       for (var i in albums) {
 
         albums[i].addEventListener('mouseenter', function () {
+            this.components.sound.play();
             this.setAttribute('geometry', 'width', '1');
             this.setAttribute('geometry', 'height', '1');
         });
 
         albums[i].addEventListener('mouseleave', function () {
+            this.components.sound.pause();
             this.setAttribute('geometry', 'width', '.8');
             this.setAttribute('geometry', 'height', '.8');
         });
