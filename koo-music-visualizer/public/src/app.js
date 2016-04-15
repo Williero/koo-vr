@@ -5,10 +5,10 @@ angular.module("KooMusicApp", ['ngRoute'])
             .when('/', {
                 controller: 'MusicController',
                 templateUrl: 'views/music-scene.html'
+            })
+            .when('/:emotion', {
+                controller: 'NewController',
+                templateUrl: 'views/new.html'
             });
-            // .when('/contact/new', {
-            //     controller: 'NewController',
-            //     templateUrl: 'views/new.html'
-            // });
         $locationProvider.html5Mode(true)
     });
