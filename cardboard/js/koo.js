@@ -3,6 +3,8 @@
     var effect, controls;
     var element, container;
 
+    var objects = [], plane;
+
     var clock = new THREE.Clock();
 
     init();
@@ -79,12 +81,29 @@
       // SIZE OF THE GEOMETRIC PLANE - RENDER GEOMETRIC OBJECTS
       var geometry = new THREE.PlaneGeometry(1000, 1000);
 
+      for ( var i = 0; i < 1; i ++ ) {
+          var object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
+          object.position.x = Math.random() * 1000 - 500;
+          object.position.y = Math.random() * 600 - 300;
+          object.position.z = Math.random() * 800 - 400;
+          object.rotation.x = Math.random() * 2 * Math.PI;
+          object.rotation.y = Math.random() * 2 * Math.PI;
+          object.rotation.z = Math.random() * 2 * Math.PI;
+          object.scale.x = Math.random() * 2 + 1;
+          object.scale.y = Math.random() * 2 + 1;
+          object.scale.z = Math.random() * 2 + 1;
+          object.castShadow = true;
+          object.receiveShadow = true;
+          scene.add( object );
+          objects.push( object );
+        }
+
       var mesh = new THREE.Mesh(geometry, material);
       mesh.rotation.x = -Math.PI / 2;
       scene.add(mesh);
 
       // GEOMETRIC DIMENSIONS OF NEW CUBE OBJECT
-      var geometry2 = new THREE.BoxGeometry(10,10,10);
+      var geometry2 = new THREE.CircleGeometry(10,10,10);
 
       // TEXTURE OF OBJECT
       var material2 = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
@@ -99,14 +118,14 @@
       var render = function() {
         requestAnimationFrame( render );
         // woah son, let's slow rotation down a bit
-        cube.rotation.x += 0.2;
-        cube.rotation.y += 0.2; 
+        cube.rotation.x += 0.02;
+        cube.rotation.y += 0.02; 
         renderer.render(scene, camera);       
       }
       render();
       
       // CUBE 2
-      var geometry2 = new THREE.BoxGeometry(5,5,5);
+      var geometry2 = new THREE.SphereGeometry(5,5,5);
       var material2 = new THREE.MeshPhongMaterial({ color: 0xFF6699, specular: 0x009900, shininess: 50});
       var cube2 = new THREE.Mesh(geometry2, material2);
       scene.add(cube2);
