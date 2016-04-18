@@ -3,7 +3,7 @@ angular.module("KooMusicApp", ['ngRoute', 'ngResource'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                controller: 'MenuController',
+                controller: 'MusicController',
                 templateUrl: 'views/menu.html'
             })
             .when('/:emotion', {
