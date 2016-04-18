@@ -1,14 +1,14 @@
 // Array in module defines dependecies (e.g. angular-routes)"
-angular.module("KooMusicApp", ['ngRoute'])
+angular.module("KooMusicApp", ['ngRoute', 'ngResource'])
     .config(function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                controller: 'MusicController',
-                templateUrl: 'views/music-scene.html'
+                controller: 'MenuController',
+                templateUrl: 'views/menu.html'
             })
             .when('/:emotion', {
-                controller: 'NewController',
-                templateUrl: 'views/new.html'
+                controller: 'MusicController',
+                templateUrl: 'views/music-scene.html'
             });
         $locationProvider.html5Mode(true)
     });
