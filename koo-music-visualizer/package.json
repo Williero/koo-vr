@@ -1,12 +1,12 @@
 {
   "name": "koo-music-visualizer",
   "version": "1.0.0",
-  "description": "A WebVR App for listening to Music",
+  "description": "A music player for WebVR",
   "main": "api.js",
   "dependencies": {
-    "body-parser": "^1.15.0",
     "bourne": "^0.4.0",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "body-parser": "^1.15.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,16 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebscholl/koo-vr.git"
+    "url": "https://github.com/sebscholl/koo-vr/tree/master/koo-music-visualizer"
   },
   "keywords": [
-    "VR",
-    "WebVR"
+    "webVR",
+    "VR"
   ],
   "author": "Sebastian Scholl and Holly Peck",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sebscholl/koo-vr/issues"
-  },
-  "homepage": "https://github.com/sebscholl/koo-vr#readme"
+  "license": "ISC"
 }
